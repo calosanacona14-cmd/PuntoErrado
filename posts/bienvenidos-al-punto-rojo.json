@@ -1,0 +1,12 @@
+{
+  "title": "Bienvenidos al punto rojo",
+  "slug": "bienvenidos-al-punto-rojo",
+  "date": "2025-08-31",
+  "tags": [
+    "bienvenida",
+    "manifiesto"
+  ],
+  "readingTime": 2,
+  "cover": "./assets/cover1.jpg",
+  "content": "# Hola\nEste es el blog **El Punto de Vista Equivocado**. Acá venimos a pensar en voz alta, sin pedir permiso.\n\n- Publica con JSON.\n- Etiqueta y listo.\n\n[Volver al inicio](./)."
+}

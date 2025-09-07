@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sobre — El Punto de Vista Equivocado</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <span class="logo">●</span>
+          <span class="brand-text">El Punto de Vista <strong>Equivocado</strong></span>
+        </a>
+        <nav class="nav">
+          <a href="./" class="nav-link">Inicio</a>
+          <a href="./sobre.html" class="nav-link is-active">Sobre</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="prose">
+        <h1>¿Qué es <em>El Punto de Vista Equivocado</em>?</h1>
+        <p>Un blog con tono rebelde, directo y sin rodeos. Aquí se publican ideas que no le piden permiso al algoritmo.</p>
+             </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>© <span id="year"></span> El Punto de Vista Equivocado.</p>
+      </div>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
