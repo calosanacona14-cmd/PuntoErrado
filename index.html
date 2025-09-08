@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>El Punto de Vista Equivocado — Blog</title>
+    <meta name="description" content="Blog 'El Punto de Vista Equivocado'. Opiniones con tono rojo: rebelde, directo y sin rodeos." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <span class="logo">●</span>
+          <span class="brand-text">El Punto de Vista <strong>Equivocado</strong></span>
+        </a>
+        <nav class="nav">
+          <a href="./" class="nav-link is-active">Inicio</a>
+          <a href="./sobre.html" class="nav-link">Sobre</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Banner superior -->
+    <div class="banner-ad top-banner">Espacio publicitario</div>
+
+    <main class="wrap">
+      <section class="hero">
+        <h1 class="title">Ideas en rojo: incómodas, claras, propias.</h1>
+        <form id="searchForm" class="search">
+          <input id="q" type="search" placeholder="Buscar por título o etiqueta…" aria-label="Buscar" />
+        </form>
+      </section>
+
+      <section id="postList" class="grid"></section>
+
+
+
+        <div class="grid">
+  <!-- Post 1 -->
+  <article class="card">
+    <a href="post1.html">
+      <img src="imagenes/post1.jpg" alt="Imagen del post" class="cover">
+    </a>
+    <h2 class="title-sm">
+      <a href="post1.html">¿Empoderamiento o prostitución digital?</a>
+    </h2>
+    <p class="meta">Publicado el 7 de septiembre de 2025</p>
+  </article>
+
+  <!-- Post 2 -->
+  <article class="card">
+    <a href="post2.html">
+      <img src="imagenes/post2.jpg" alt="Imagen del post" class="cover">
+    </a>
+    <h2 class="title-sm">
+      <a href="post2.html">Título del Post 2</a>
+    </h2>
+    <p class="meta">Publicado el 8 de septiembre de 2025</p>
+  </article>
+</div>
+
+
+
+
+      <!-- Banner central -->
+      <div class="banner-ad center-banner">Espacio publicitario</div>
+
+      <div id="pager" class="pager" hidden>
+        <button id="prevBtn" class="btn" disabled>← Anterior</button>
+        <span id="pageInfo" class="page-info"></span>
+        <button id="nextBtn" class="btn">Siguiente →</button>
+      </div>
+
+      <!-- Banner inferior -->
+      <div class="banner-ad bottom-banner">Espacio publicitario</div>
+    </main>
+
+    <!-- Video flotante publicitario -->
+    <div class="video-ad" id="videoAd">
+      <video autoplay muted loop>
+        <source src="assets/video-publi.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <button class="close-btn" onclick="document.getElementById('videoAd').style.display='none'">✕</button>
+    </div>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>© <span id="year"></span> El Punto de Vista Equivocado. Hecho con HTML y CSS.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>

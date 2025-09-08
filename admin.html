@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creador de posts — EPdVE</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./">
+          <span class="logo">●</span>
+          <span class="brand-text">El Punto de Vista <strong>Equivocado</strong></span>
+        </a>
+        <nav class="nav">
+          <a href="./" class="nav-link">Inicio</a>
+          <a href="./admin.html" class="nav-link is-active">Creador</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="prose">
+        <h1>Creador de publicaciones (offline)</h1>
+        <p>Rellena el formulario, descarga el archivo <code>{slug}.json</code> y súbelo a <code>/posts</code>. Luego añade la entrada al <code>/posts/index.json</code>.</p>
+      </section>
+
+      <form id="form" class="grid" style="grid-template-columns: 1fr;">
+        <label>Título
+          <input id="title" required placeholder="Ej. La opinión impopular del día" />
+        </label>
+        <label>Slug (para la URL)
+          <input id="slug" required placeholder="opinion-impopular-dia" />
+        </label>
+        <label>Fecha
+          <input id="date" type="date" required />
+        </label>
+        <label>Etiquetas (separadas por comas)
+          <input id="tags" placeholder="opinión, cultura, internet" />
+        </label>
+        <label>Tiempo de lectura (minutos)
+          <input id="readingTime" type="number" min="1" step="1" placeholder="3" />
+        </label>
+        <label>Imagen de portada (URL completa o ruta relativa)
+          <input id="cover" placeholder="./assets/cover.jpg" />
+        </label>
+        <label>Contenido (Markdown o HTML simple)
+          <textarea id="content" rows="12" placeholder="# Encabezado
+Párrafos, **negritas**, *itálicas*, enlaces [así](https://example.com).
+También puedes pegar HTML si lo prefieres."></textarea>
+        </label>
+        <div>
+          <button class="btn" type="submit">Descargar JSON del post</button>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      const $ = s => document.querySelector(s);
+      const form = $('#form');
+      $('#date').value = new Date().toISOString().slice(0,10);
+      $('#title').addEventListener('input', e=>{
+        const s = e.target.value
+          .toLowerCase()
+          .normalize('NFD').replace(/\p{Diacritic}/gu,'')
+          .replace(/[^a-z0-9\s-]/g,'')
+          .trim()
+          .replace(/\s+/g,'-')
+          .slice(0,80);
+        if(!$('#slug').value) $('#slug').value = s;
+      });
+      form.addEventListener('submit', e=>{
+        e.preventDefault();
+        const post = {
+          title: $('#title').value.trim(),
+          slug: $('#slug').value.trim(),
+          date: $('#date').value,
+          tags: $('#tags').value.split(',').map(t=>t.trim()).filter(Boolean),
+          readingTime: $('#readingTime').value ? parseInt($('#readingTime').value,10) : undefined,
+          cover: $('#cover').value.trim() || undefined,
+          content: $('#content').value
+        };
+        const blob = new Blob([JSON.stringify(post, null, 2)], {type:'application/json'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = post.slug + '.json';
+        document.body.appendChild(a);
+        a.click();
+        URL.revokeObjectURL(a.href);
+        a.remove();
+      });
+    </script>
+  </body>
+</html>
