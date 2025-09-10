@@ -77,20 +77,7 @@ body{
 .prose{max-width:760px;margin:0 auto}
 code{background:#1b1b22;border:1px solid #2a2a31;padding:2px 6px;border-radius:6px}
 
-.banner-ad {
-  display: block;
-  width: 100%;
-  max-width: 300px; /* tamaño estándar de banner */
-  height: 250px;
-  margin: 20px auto;
-  background: #f0f0f0;
-  border: 2px dashed #999;
-  color: #666;
-  font-size: 14px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 90px; /* centra el texto verticalmente */
-}
+
 .video-ad {
   position: fixed;
   bottom: 20px;
@@ -122,4 +109,48 @@ code{background:#1b1b22;border:1px solid #2a2a31;padding:2px 6px;border-radius:6
   height: 24px;
   line-height: 20px;
   text-align: center;
+}
+
+/* === Estilos para banners publicitarios === */
+.banner-ad {
+  display: block;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  background: #f9f9f9;
+  max-width: 728px; /* tamaño recomendado para anuncios estándar */
+  min-height: 90px; /* altura mínima */
+}
+
+/* Banner superior */
+.top-banner {
+  margin-top: 1.5rem;
+}
+
+/* Banner central */
+.center-banner {
+  margin: 2.5rem auto;
+}
+
+/* Banner inferior */
+.bottom-banner {
+  margin-bottom: 2rem;
+}
+
+/* Hover opcional (si quieres que llame más la atención al pasar el mouse) */
+.banner-ad:hover {
+  background: #f1f1f1;
+  border-color: #999;
+}
+
+.cover {
+  max-width: 100%;   /* nunca será más ancha que el contenedor */
+  height: auto;      /* mantiene proporción */
+  display: block;    /* elimina espacios raros debajo */
+  margin: 1rem auto; /* centrada con márgenes arriba/abajo */
+  border-radius: 8px; /* opcional, esquinas redondeadas */
 }
