@@ -126,26 +126,7 @@ code{background:#1b1b22;border:1px solid #2a2a31;padding:2px 6px;border-radius:6
   min-height: 90px; /* altura mínima */
 }
 
-/* Banner superior */
-.top-banner {
-  margin-top: 1.5rem;
-}
 
-/* Banner central */
-.center-banner {
-  margin: 2.5rem auto;
-}
-
-/* Banner inferior */
-.bottom-banner {
-  margin-bottom: 2rem;
-}
-
-/* Hover opcional (si quieres que llame más la atención al pasar el mouse) */
-.banner-ad:hover {
-  background: #f1f1f1;
-  border-color: #999;
-}
 
 .cover {
   max-width: 100%;   /* nunca será más ancha que el contenedor */
@@ -153,4 +134,18 @@ code{background:#1b1b22;border:1px solid #2a2a31;padding:2px 6px;border-radius:6
   display: block;    /* elimina espacios raros debajo */
   margin: 1rem auto; /* centrada con márgenes arriba/abajo */
   border-radius: 8px; /* opcional, esquinas redondeadas */
+}
+.ad-container {
+  display: flex;
+  justify-content: center; /* centra el banner */
+  align-items: center;
+  margin: 10px auto;
+  max-width: 100%; 
+  overflow: hidden; /* evita desbordes raros */
+}
+.ad-container iframe, 
+.ad-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
