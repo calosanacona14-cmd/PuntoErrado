@@ -158,19 +158,30 @@ code{background:#1b1b22;border:1px solid #2a2a31;padding:2px 6px;border-radius:6
 }
 
 .sugerencias h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   color: #333;
+  text-align: center;
 }
 
+/* Carrusel */
 .sugerencias-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: flex;
   gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* suave en iOS */
+  padding-bottom: 0.5rem;
 }
 
+.sugerencias-grid::-webkit-scrollbar {
+  display: none; /* ocultar scrollbar */
+}
+
+/* Tarjetas */
 .sugerencias-grid a {
-  display: block;
+  flex: 0 0 220px; /* ancho fijo de cada tarjeta */
+  scroll-snap-align: start;
   text-decoration: none;
   color: inherit;
   border-radius: 10px;
@@ -193,8 +204,23 @@ code{background:#1b1b22;border:1px solid #2a2a31;padding:2px 6px;border-radius:6
 }
 
 .sugerencias-grid p {
-  font-size: 0.95rem;
-  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  padding: 0.6rem;
   text-align: center;
   color: #444;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  .sugerencias-grid a {
+    flex: 0 0 75%; /* ocupa casi toda la pantalla en móvil */
+  }
+
+  .sugerencias-grid img {
+    height: 160px;
+  }
+
+  .sugerencias-grid p {
+    font-size: 0.85rem;
+  }
 }
